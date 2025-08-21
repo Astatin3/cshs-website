@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <title>FRHS Tech</title>
-    <?php include $_SERVER["DOCUMENT_ROOT"].'/head.php'; ?>
+    <?php include $_SERVER["DOCUMENT_ROOT"] . "/head.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
     <script src="js/beardify.js"></script>
 </head>
 <body data-theme="night">
-  <?php include $_SERVER["DOCUMENT_ROOT"].'/titlebar.php'; ?>
+  <?php include $_SERVER["DOCUMENT_ROOT"] . "/titlebar.php"; ?>
   <div class="pt-[60px] flex flex-col justify-between min-h-screen">
     <div class="lg:hidden p-10 flex flex-wrap justify-center gap-12 max-md:gap-6">
       <div class="flex justify-center items-center gap-10"">
@@ -44,44 +44,46 @@
         <div class="flex flex-wrap justify-center mt-5">
 
         <?php
-          // Format is [TeacherImageStem, TeacherName]
-          // An image stem is the thing before an image
-          // e.g. "Picture" would be the image stem for Picture.png
-          // This is done because images should be in both .avif and .png formats
-          // AVIF images are much better, but PNGs are more widely supported as of 2023
-          $teachers = [["Dannahower", "Mr. Dannahower"], 
-                      ["Menefee","Mr. Menefee"],
-                      ["Peardot","Mr. Peardot"],
-                      ["Ruffer","Mr. Ruffer"],
-                      ["Stone","Dr. Stone"],
-                      ["Reimers","Mr. Reimers"],
-                      ["Brown","Mr. Brown"],
-                      ["Wilbourn","Mr. Wilbourn"],
-                      ["Jackson","Mr. Jackson"],
-          ];
+        // Format is [TeacherImageStem, TeacherName]
+        // An image stem is the thing before an image
+        // e.g. "Picture" would be the image stem for Picture.png
+        // This is done because images should be in both .avif and .png formats
+        // AVIF images are much better, but PNGs are more widely supported as of 2023
+        $teachers = [
+            ["Dannahower", "Mr. Dannahower"],
+            ["Menefee", "Mr. Menefee"],
+            ["Peardot", "Mr. Peardot"],
+            ["Ruffer", "Mr. Ruffer"],
+            ["Stone", "Dr. Stone"],
+            ["Reimers", "Mr. Reimers"],
+            ["Brown", "Mr. Brown"],
+            ["Wilbourn", "Mr. Wilbourn"],
+            ["Jackson", "Mr. Jackson"],
+        ];
 
-          //Loops through each teacher and makes an icon to change to them
-          foreach($teachers as $teacher){
+        //Loops through each teacher and makes an icon to change to them
+        foreach ($teachers as $teacher) {
+
             // Seperate the variables from the tuple for readability
             $imgStem = $teacher[0];
             $name = $teacher[1];
             ?>
 
-            <div class="group card w-[200px] max-xl:w-[90%] mb-5 bg-base-100 cursor-pointer shadow-xl hover:bg-base-300 transition" onclick="changeTeacher('<?php echo($imgStem) ?>')">
+            <div class="group card w-[200px] max-xl:w-[90%] mb-5 bg-base-100 cursor-pointer shadow-xl hover:bg-base-300 transition" onclick="changeTeacher('<?php echo $imgStem; ?>')">
               <figure class="px-2 pt-2">
-                <img 
-                    src="img/beardify/<?php echo($imgStem)?>.png" 
-                    onerror="this.src='img/beardify/<?php echo($imgStem)?>.png' 
-                    alt="Picture of <?php echo($name) ?>" 
+                <img
+                    src="img/beardify/<?php echo $imgStem; ?>.png"
+                    onerror="this.src='img/beardify/<?php echo $imgStem; ?>.png'
+                    alt="Picture of <?php echo $name; ?>"
                     class="rounded-xl h-[200px] max-xl:h-full w-full object-fill" />
               </figure>
               <div class="card-body p-3 items-center text-center">
-                <h2 class="font-semibold text-xl max-xl:text-base"><?php echo($name) ?></h2>
+                <h2 class="font-semibold text-xl max-xl:text-base"><?php echo $name; ?></h2>
               </div>
             </div>
-            
+
             <?php
-          }
+        }
         ?>
 
         </div>

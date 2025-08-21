@@ -1,3 +1,6 @@
+#todo:
+[ ] - Dynamic meetings slides
+
 # cshs-website
 These files are automatically synced to [frhs.tech](https://frhs.tech) every minute. This repo will allow for easier collaboration than sending files over google drive or discord.
 Currently, this is just getting started, so expect some minor breakage.
