@@ -11,7 +11,7 @@ elements = {
 
 # Add redirects to website
 # Ex: https://frhs.tech/test -> https://goole.com
-route("/github", 'GET', lambda: redirect("https://github.com/emyuan124/cshs-website"))
+route("/github", 'GET', lambda: redirect("https://github.com/astatin3/cshs-website"))
 route("/instagram", 'GET', lambda: redirect("https://www.instagram.com/fossilridge.cshs/"))
 route("/msi", 'GET', lambda: redirect("https://docs.google.com/forms/d/1KQjApRs8CiffvLPfwc5be3ujgyJEHAZ1SOLOm1-UD7Q/edit"))
 route("/masterlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
