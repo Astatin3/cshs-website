@@ -23,9 +23,11 @@ route("/hourlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/
 route("/cshs_hour_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
 
 # https://docs.google.com/forms/d/e/1FAIpQLSeVCnBeLAZINfsuv_O8p_GJ2DRyue_IZFRPbi2frTV--aFJJw/viewform
-route("/cshs_registration", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSeVCnBeLAZINfsuv_O8p_GJ2DRyue_IZFRPbi2frTV--aFJJw/viewform"))
-
+route("/cshs_registration", 'GET', lambda: redirect("https://forms.gle/Gu74zjMJTttQNsLt7"))
+route("/cshs_signup", 'GET', lambda: redirect("https://forms.gle/Gu74zjMJTttQNsLt7"))
 route("/cshs_hour_opps", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
+
+
 
 # route("/cshs_signup", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf3AOrpDlTbDzXUyrTfy57vAhtTjYBFyt7pa84ufEldqF4tUw/viewform"))
 
