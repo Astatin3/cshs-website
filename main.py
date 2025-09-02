@@ -19,6 +19,7 @@ route("/masterlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheet
 
 route("/cshs_bylaws", 'GET', lambda: redirect("https://docs.google.com/document/d/1YzR-cGSoa1PBMYJVzNoFG7Nfd5CKWblfK_DRL2tByJ0/edit?usp=sharing"))
 route("/cshs_master_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
+route("/hourlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
 route("/cshs_hour_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
 
 # https://docs.google.com/forms/d/e/1FAIpQLSeVCnBeLAZINfsuv_O8p_GJ2DRyue_IZFRPbi2frTV--aFJJw/viewform
