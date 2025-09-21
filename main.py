@@ -12,23 +12,40 @@ elements = {
 # Add redirects to website
 # Ex: https://frhs.tech/test -> https://goole.com
 route("/github", 'GET', lambda: redirect("https://github.com/astatin3/cshs-website"))
-route("/instagram", 'GET', lambda: redirect("https://www.instagram.com/fossilridge.cshs/"))
-route("/msi", 'GET', lambda: redirect("https://docs.google.com/forms/d/1KQjApRs8CiffvLPfwc5be3ujgyJEHAZ1SOLOm1-UD7Q/edit"))
-route("/masterlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
-
+## 
+## CSHS
+## 
 
 route("/cshs_bylaws", 'GET', lambda: redirect("https://docs.google.com/document/d/1YzR-cGSoa1PBMYJVzNoFG7Nfd5CKWblfK_DRL2tByJ0/edit?usp=sharing"))
-route("/cshs_master_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
-route("/hourlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
-route("/cshs_hour_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
+
+# Old, 24-25 route("/masterlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
+route("/masterlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1yVoUb9HwKQ1EzLD8ybuyULA4SckTp8TJ79K-25Yd1Zs/edit?usp=sharing"))
+route("/cshs_master_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1yVoUb9HwKQ1EzLD8ybuyULA4SckTp8TJ79K-25Yd1Zs/edit?usp=sharing"))
+
 
 # https://docs.google.com/forms/d/e/1FAIpQLSeVCnBeLAZINfsuv_O8p_GJ2DRyue_IZFRPbi2frTV--aFJJw/viewform
 route("/cshs_registration", 'GET', lambda: redirect("https://forms.gle/Gu74zjMJTttQNsLt7"))
 route("/cshs_signup", 'GET', lambda: redirect("https://forms.gle/Gu74zjMJTttQNsLt7"))
-route("/cshs_hour_opps", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
+
+# Old, 24-25 route("/hourlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1RSi9-gsC4HGqME4LLPqivaVEnLsBzDhyhOcCbQalSDs/edit?usp=sharing"))
+route("/hourlog", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1FrSHD6S7db_juGQYg3Tou56-KxkRmjMhlmmZfj_8YuQ/edit?usp=sharing"))
+route("/cshs_hour_log", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1FrSHD6S7db_juGQYg3Tou56-KxkRmjMhlmmZfj_8YuQ/edit?usp=sharing"))
+
+# Same as mster log
+# Old, 24-25 route("/cshs_hour_opps", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1ZhljBt7N1RV-9AyAzdGpuxLDA0Tn9Z7dXlnuojYQzPg/edit?usp=sharing"))
+route("/cshs_hour_opps", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1yVoUb9HwKQ1EzLD8ybuyULA4SckTp8TJ79K-25Yd1Zs/edit?usp=sharing"))
 
 
 
+
+route("/instagram", 'GET', lambda: redirect("https://www.instagram.com/fossilridge.cshs/"))
+
+
+##
+## Old / Unused links
+##
+
+# route("/msi", 'GET', lambda: redirect("https://docs.google.com/forms/d/1KQjApRs8CiffvLPfwc5be3ujgyJEHAZ1SOLOm1-UD7Q/edit"))
 # route("/cshs_signup", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf3AOrpDlTbDzXUyrTfy57vAhtTjYBFyt7pa84ufEldqF4tUw/viewform"))
 
 # route("/aprilsignin", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf75Mtp4tG-ca-spMgnwerskue6YXNKxEguQJei4MpP4JJ_zQ/viewform?usp=sf_link"))
