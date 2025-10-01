@@ -32,6 +32,7 @@ function changeTheme(check) {
 window.onload = () => {
     theme = document.getElementById('theme_switch');
     current_theme = getCookie("theme");
+
     if (current_theme == "winter") {
         document.body.dataset.theme = "winter";
         theme.checked = true;

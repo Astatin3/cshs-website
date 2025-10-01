@@ -1,0 +1,9 @@
+{
+    "mikovsky_rustex": {
+        "title": "RusTeX",
+        "subtitle": "Math rendering in Rust",
+        "authors": "Michael Mikovsky",
+        "page": "articles/mikovsky_rustex.md",
+        "image": "/img/articles/mikovsky_rustex.png"
+    }
+}

@@ -1,17 +1,27 @@
 from bottle import route, run, static_file, redirect, error
-from utils import *
+from src.utils import *
+from src.projects import *
+
+articles = load_projects()
 
 # Includes other HTML elements inside themselves.
 # For example, <!--footer--> in pages will be replaced with the footer source code.
 elements = {
-    "head": "elements/head.html",
-    "titlebar": "elements/titlebar.html",
-    "footer": "elements/footer.html"
+    "head": load_file("elements/head.html"),
+    "titlebar": load_file("elements/titlebar.html"),
+    "footer": load_file("elements/footer.html")
 }
+
+# Add list of articles, for article page
+elements["articles"] = create_article_list(articles, elements)
+
+format_pages(articles, elements)
 
 # Add redirects to website
 # Ex: https://frhs.tech/test -> https://goole.com
 route("/github", 'GET', lambda: redirect("https://github.com/astatin3/cshs-website"))
+
+
 ## 
 ## CSHS
 ## 
@@ -40,37 +50,17 @@ route("/cshs_hour_opps", 'GET', lambda: redirect("https://docs.google.com/spread
 
 route("/instagram", 'GET', lambda: redirect("https://www.instagram.com/fossilridge.cshs/"))
 
-
-##
-## Old / Unused links
-##
-
-# route("/msi", 'GET', lambda: redirect("https://docs.google.com/forms/d/1KQjApRs8CiffvLPfwc5be3ujgyJEHAZ1SOLOm1-UD7Q/edit"))
-# route("/cshs_signup", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf3AOrpDlTbDzXUyrTfy57vAhtTjYBFyt7pa84ufEldqF4tUw/viewform"))
-
-# route("/aprilsignin", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf75Mtp4tG-ca-spMgnwerskue6YXNKxEguQJei4MpP4JJ_zQ/viewform?usp=sf_link"))
-# route("/board-app", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLScE2OZN9NHb6kfFyqOV8VrNHdL1LH-KYVhrIQSF1QpmaliPSA/viewform?usp=sf_link"))
-# route("/challenge", 'GET', lambda: redirect("https://edabit.com/collection/Bz6LEGAhTRwqseZCy"))
-
-# route("/hackathon-exit-2022", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSeQVGjTZu8k0mE5CSSzLKl4ZhK0z1CFpzwh_stxKNPHdV1y2w/viewform?usp=pp_url"))
-# route("/hackathon-rules-2022", 'GET', lambda: redirect("https://docs.google.com/document/d/1xTA2LrbUGa7YlASj3ZQoFM1UTA4bLj7w3IkrvcgBFsU/edit?usp=sharing"))
-# route("/hackathon-rules-scoring-2022", 'GET', lambda: redirect("https://docs.google.com/spreadsheets/d/1L9LBvmYJbjKXM70Wom2uodXDtoosGTmE4dZ2WKLJlXk/edit?usp=sharing"))
-
-# route("/lancom", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSetQ8WMLD5o-ak5fKzslC39OrjxxwA-PxzcQ87c-jTGV9IgiA/viewform?usp=sf_link"))
-# route("/lipdub", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSdUPNbyxhI53ukWtqUli32YmVyF0ffVpPhAln8wE9R7iDKp4A/viewform?usp=sf_link"))
-# route("/lp", 'GET', lambda: redirect("https://forms.gle/gTMuib6V2wUVmVn6A"))
-
-# route("/tots", 'GET', lambda: redirect("https://docs.google.com/forms/d/e/1FAIpQLSf3AOrpDlTbDzXUyrTfy57vAhtTjYBFyt7pa84ufEldqF4tUw/viewform"))
-
-
 # Route each page to its actual file
-route("/", 'GET', page("index", elements))
-route("/hackathon", 'GET', page("hackathon", elements))
-route("/foodtrucks", 'GET', page("foodtrucks", elements))
-route("/board", 'GET', page("board", elements))
-route("/codingclub", 'GET', page("codingclub", elements))
-route("/cshs", 'GET', page("cshs", elements))
-route("/cshs/slides", 'GET', page("cshs_slides", elements))
+route("/", 'GET', page("pages/index", elements))
+route("/hackathon", 'GET', page("pages/hackathon", elements))
+route("/foodtrucks", 'GET', page("pages/foodtrucks", elements))
+route("/board", 'GET', page("pages/board", elements))
+route("/codingclub", 'GET', page("pages/codingclub", elements))
+route("/cshs", 'GET', page("pages/cshs", elements))
+route("/cshs/slides", 'GET', page("pages/cshs_slides", elements))
+
+route("/articles", 'GET', page("pages/articles", elements))
+route("/writing_an_article", 'GET', md_page("pages/writing_an_article", elements))
 
 # Route the /img path to the image directory
 @route('/img/<filename:path>')
@@ -83,8 +73,13 @@ def img(filename):
 def js(filename):
     return static_file(filename, root=root_js)
 
-error(403, page_error("403", elements))
-error(404, page_error("404", elements))
+# Route the /css path to the css directory
+@route('/css/<filename:path>')
+def css(filename):
+    return static_file(filename, root=root_css)
+
+error(403, page_error("pages/403", elements))
+error(404, page_error("pages/404", elements))
 
 # @error(404)
 # def error404(error):
